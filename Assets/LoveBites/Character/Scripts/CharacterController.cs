@@ -5,34 +5,17 @@ using System;
 
 public class CharacterController : MonoBehaviour
 {
-    [Header("Interaction")]
-    [SerializeField] private LayerMask _interactableLayer;
-
-    [Header("Movement")]
-    [SerializeField] private LayerMask _clickableLayer;
-
+    [SerializeField] private LayerMask _clickableLayer = 1 << 0;
     private InputSystem_Actions _input;
-    private NavMeshAgent _agent;
 
-    [Header("VFX")]
-    [SerializeField] private GameObject _clickEffectPrefab;
-
-    private Renderer _clickEffect;
-    private readonly int _clickTime = Shader.PropertyToID("_ClickTime");
-
+    private CharacterMovement _characterMovement;
 
     private void Awake()
     {
-        _agent = GetComponent<NavMeshAgent>();
+        _characterMovement = GetComponent<CharacterMovement>();
 
         _input = new InputSystem_Actions();
         AssignInput();
-
-        if (_clickEffectPrefab != null)
-        {
-            GameObject clickEffect = Instantiate(_clickEffectPrefab, new Vector3(0, 0, 0), Quaternion.Euler(90, 0, 0));
-            _clickEffect = clickEffect.GetComponent<Renderer>();
-        }
     }
 
     private void OnEnable()
@@ -47,26 +30,26 @@ public class CharacterController : MonoBehaviour
 
     private void AssignInput()
     {
-        _input.Player.Interact.performed += ctx => Interact();
+        _input.Player.Interact.performed += ctx => OnLeftClick();
     }
 
-    private void Interact() 
+    private void OnLeftClick() 
     {
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100, _clickableLayer))
         {
-            _agent.destination = hit.point;
+            hit.transform.TryGetComponent(out IInteractable interactableObject);
 
-            SpawnClickEffect(hit);
-        }
-    }
+            if (interactableObject != null) 
+            {
+                interactableObject.Interact(hit);
+                return;
+            }
 
-    private void SpawnClickEffect(RaycastHit hit)
-    {
-        if (_clickEffect != null)
-        {
-            _clickEffect.transform.position = hit.point + Vector3.up * 0.01f;
-            _clickEffect.material.SetFloat(_clickTime, Time.time);
+            if (_characterMovement != null)
+            {
+                _characterMovement.MoveToPosition(hit.point);
+            }
         }
     }
 }

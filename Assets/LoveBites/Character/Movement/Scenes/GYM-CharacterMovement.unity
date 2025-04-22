@@ -503,7 +503,8 @@ GameObject:
   - component: {fileID: 921484268}
   - component: {fileID: 921484265}
   - component: {fileID: 921484269}
-  - component: {fileID: 921484267}
+  - component: {fileID: 921484271}
+  - component: {fileID: 921484270}
   m_Layer: 7
   m_Name: Characer
   m_TagString: Untagged
@@ -607,22 +608,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &921484267
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 921484260}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70cc790ce6856934fb355692c46595ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _clickableLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  _clickEffectPrefab: {fileID: 1323353577010900358, guid: 33a2d960ca35f9441a1e29afa466c285, type: 3}
 --- !u!65 &921484268
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -666,6 +651,34 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &921484270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 921484260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88e4d4db24ff45743979c3db3f5a7eeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _clickEffectPrefab: {fileID: 1323353577010900358, guid: 33a2d960ca35f9441a1e29afa466c285, type: 3}
+--- !u!114 &921484271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 921484260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70cc790ce6856934fb355692c46595ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _clickableLayer:
+    serializedVersion: 2
+    m_Bits: 65
 --- !u!1 &1045755312
 GameObject:
   m_ObjectHideFlags: 0
@@ -1009,6 +1022,37 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!1 &1959970725
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1959970726}
+  m_Layer: 0
+  m_Name: ParkingPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1959970726
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959970725}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1970477140}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1960340203
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1075,6 +1119,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1970477140}
+  - component: {fileID: 1970477141}
   - component: {fileID: 1970477139}
   m_Layer: 0
   m_Name: SmallBuildingContainer
@@ -1113,8 +1158,30 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2129375172}
+  - {fileID: 1959970726}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1970477141
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970477138}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 6, y: 6, z: 6}
+  m_Center: {x: 0, y: 3, z: 0}
 --- !u!1 &1992282615
 GameObject:
   m_ObjectHideFlags: 0
