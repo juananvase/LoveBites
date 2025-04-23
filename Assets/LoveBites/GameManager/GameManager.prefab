@@ -52,7 +52,6 @@ MonoBehaviour:
   _onFinishActivity: {fileID: 11400000, guid: 9ba15e62d5034d34e9dd70c6588da741, type: 2}
   _homes:
   - {fileID: 0}
-  - {fileID: 0}
   _restaurants:
   - {fileID: 0}
   - {fileID: 0}

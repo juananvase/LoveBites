@@ -61,7 +61,7 @@ public class CustomCharacterController : MonoBehaviour
         RaycastHit hit;
         while (true) 
         {
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 10000000000000, _hoverableLayer))
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 1000, _hoverableLayer))
             {
                 hit.transform.TryGetComponent(out IHoverable hoverableObject);
 
@@ -98,7 +98,7 @@ public class CustomCharacterController : MonoBehaviour
         }
 
         RaycastHit hit;
-        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100, _clickableLayer))
+        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 1000, _clickableLayer))
         {
             hit.transform.TryGetComponent(out IInteractable interactableObject);
 

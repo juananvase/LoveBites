@@ -128,6 +128,14 @@ public class GameManager : MonoBehaviour
     {
         _onGeneratePassangerData.Invoke();
     }
+    public void EmergencyHome()
+    {
+        ChangeGameStage(GameStage.Club);
+        MoveToNextStage();
+        ChangeStateOfAllBuildings(_restaurants, BuildingState.Idle, false);
+        ChangeStateOfAllBuildings(_coffes, BuildingState.Idle, false);
+        ChangeStateOfAllBuildings(_clubs, BuildingState.Idle, false);
+    }
 
 }
 

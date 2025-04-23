@@ -89,8 +89,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _buildingState: 0
   _indicator: {fileID: 5385448889958452806}
-  _onFinishActivity: {fileID: 0}
-  _passangerData: {fileID: 0}
+  _onFinishActivity: {fileID: 11400000, guid: 9ba15e62d5034d34e9dd70c6588da741, type: 2}
+  _passangerData: {fileID: 11400000, guid: ef7d5c59a3086a744a694b78170040ca, type: 2}
   _onMoveAgentToPoint: {fileID: 11400000, guid: a07a17f8535ac004d920f6f2ed437f87, type: 2}
   _onDestinationReached: {fileID: 11400000, guid: ad24a73e79411d441b847619c3e72027, type: 2}
   _parkingPoint: {fileID: 2639540288113235687}
@@ -98,7 +98,19 @@ MonoBehaviour:
   _pointsData: {fileID: 0}
   OnStartMinigame:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1104068560391286750}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &5385448889958452806
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,6 +453,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 027afbbe63d0cd84c8b906928b86b4d3, type: 3}
+--- !u!1 &1104068560391286750 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1723227221559798651, guid: 027afbbe63d0cd84c8b906928b86b4d3, type: 3}
+  m_PrefabInstance: {fileID: 1781264390882215077}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &4797858772379131061 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6497913216179378192, guid: 027afbbe63d0cd84c8b906928b86b4d3, type: 3}
