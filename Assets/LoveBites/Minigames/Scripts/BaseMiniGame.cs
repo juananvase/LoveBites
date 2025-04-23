@@ -21,6 +21,7 @@ public abstract class BaseMiniGame : MonoBehaviour
     [Header("Data")]
     [SerializeField] protected float _miniGameDuration = 30f;
     [SerializeField] private GameplayStateEventAsset _onChangeGameplayState;
+    [SerializeField] private EmptyEventAsset _onFinishMinigame;
 
     protected virtual void OnEnable()
     {
@@ -71,6 +72,7 @@ public abstract class BaseMiniGame : MonoBehaviour
         if (_miniGameEffect == MinigGameEffect.Negative)
             _pointsData.OnBloodUpdated.Invoke(_bloodDecrease);
 
+        _onFinishMinigame.Invoke();
         gameObject.SetActive(false);
     }
 }
