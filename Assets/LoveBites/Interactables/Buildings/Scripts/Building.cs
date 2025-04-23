@@ -25,6 +25,12 @@ public class Building : MonoBehaviour, IInteractable
     [SerializeField] private PointsSO _pointsData;
     public UnityEvent OnStartMinigame;
 
+    private void Awake()
+    {
+        ChangeState(BuildingState.Idle);
+        _indicator.SetActive(false);
+    }
+
     private void OnEnable()
     {
         _onDestinationReached.AddListener(CheckParkingPoint);
@@ -35,11 +41,6 @@ public class Building : MonoBehaviour, IInteractable
         _onDestinationReached.RemoveListener(CheckParkingPoint);
     }
 
-    private void Start()
-    {
-        ChangeState(BuildingState.Idle);
-        _indicator.SetActive(false);
-    }
 
     public void OnInteract()
     {
@@ -53,24 +54,21 @@ public class Building : MonoBehaviour, IInteractable
             switch (_buildingState)
             {
                 case BuildingState.Pickup:
+                    _onFinishActivity.Invoke();
                     _passangerData.PickedUp = true;
                     _buildingState = BuildingState.Idle;
-                    _onFinishActivity.Invoke();
                     break;
                 case BuildingState.Drop:
+                    _onFinishActivity.Invoke();
                     _passangerData.PickedUp = false;
                     _pointsData.OnResetBlood.Invoke();
                     _buildingState = BuildingState.Idle;
-                    _onFinishActivity.Invoke();
 
                     break;
                 case BuildingState.Play:
                     _onChangeGameplayState.Invoke(GameplayState.MiniGame);
                     OnStartMinigame.Invoke();
                     _buildingState = BuildingState.Idle;
-                    break;
-                default:
-                    // code block
                     break;
             }
         }

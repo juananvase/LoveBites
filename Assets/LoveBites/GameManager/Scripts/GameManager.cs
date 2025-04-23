@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        _passangerData.Home = null;
         ChoosePlace(_homes, GameStage.Pickup, BuildingState.Pickup);
         _pointsData.OnResetBlood.Invoke();
         _pointsData.OnResetAppeal.Invoke();

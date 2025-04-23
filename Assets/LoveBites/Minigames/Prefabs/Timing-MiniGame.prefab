@@ -67,8 +67,9 @@ MonoBehaviour:
   _AppealingIncrease: 1
   _bloodDecrease: -0.5
   _AppealingDecrease: -0.5
-  _miniGaneDuration: 10
+  _miniGameDuration: 10
   _onChangeGameplayState: {fileID: 11400000, guid: 1388b9b1962b8654b8a023cc252f17fe, type: 2}
+  _onFinishMinigame: {fileID: 11400000, guid: c4c59c97e0c407a4d8d18849286e7364, type: 2}
   _slider: {fileID: 4432714252108323149}
   _hitArea: {fileID: 6839446949951868978}
   _duration: 1.5
