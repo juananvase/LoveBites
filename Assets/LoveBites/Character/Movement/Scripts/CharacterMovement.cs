@@ -1,40 +1,51 @@
+using System.Collections;
+using System.Drawing;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class CharacterMovement : MonoBehaviour
 {
+    [Header("Movement")]
+    [SerializeField] private Vector3EventAsset _onMoveAgentToPoint;
+    [SerializeField] private Vector3EventAsset _onDestinationReached;
+
+    private Coroutine _checkDestinationReached;
     private NavMeshAgent _agent;
-
-    [Header("VFX")]
-    [SerializeField] private GameObject _clickEffectPrefab;
-
-    private Renderer _clickEffect;
-    private readonly int _clickTime = Shader.PropertyToID("_ClickTime");
-
 
     private void Awake()
     {
         _agent = GetComponent<NavMeshAgent>();
-
-        if (_clickEffectPrefab != null)
-        {
-            GameObject clickEffect = Instantiate(_clickEffectPrefab, new Vector3(0, 0, 0), Quaternion.Euler(90, 0, 0));
-            _clickEffect = clickEffect.GetComponent<Renderer>();
-        }
     }
 
-    public void MoveToPosition(Vector3 point)
+    private void OnEnable()
+    {
+        _onMoveAgentToPoint.AddListener(MoveToPosition);
+    }
+
+    private void OnDisable()
+    {
+        _onMoveAgentToPoint.RemoveListener(MoveToPosition);
+    }
+
+    private void MoveToPosition(Vector3 point)
     {
         _agent.destination = point;
-        SpawnClickEffect(point);
+
+        if (_checkDestinationReached != null) 
+            StopCoroutine(_checkDestinationReached);
+
+        _checkDestinationReached = StartCoroutine(CheckDestinationReached(point));
     }
 
-    private void SpawnClickEffect(Vector3 point)
+    private IEnumerator CheckDestinationReached(Vector3 destination) 
     {
-        if (_clickEffect != null)
+        while (_agent.transform.position.x != destination.x && _agent.transform.position.z != destination.z) 
         {
-            _clickEffect.transform.position = point + Vector3.up * 0.01f;
-            _clickEffect.material.SetFloat(_clickTime, Time.time);
+            yield return new WaitForSeconds(0.2f);
         }
+
+        _onDestinationReached.Invoke(transform.position);
+        yield return null;
     }
+    
 }
