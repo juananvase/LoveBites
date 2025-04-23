@@ -210,6 +210,10 @@ MonoBehaviour:
   _onMoveAgentToPoint: {fileID: 11400000, guid: a07a17f8535ac004d920f6f2ed437f87, type: 2}
   _onDestinationReached: {fileID: 11400000, guid: ad24a73e79411d441b847619c3e72027, type: 2}
   _parkingPoint: {fileID: 7794068259577052295}
+  _onChangeGameplayState: {fileID: 11400000, guid: 1388b9b1962b8654b8a023cc252f17fe, type: 2}
+  OnStartMinigame:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &2247256048817188152
 PrefabInstance:
   m_ObjectHideFlags: 0

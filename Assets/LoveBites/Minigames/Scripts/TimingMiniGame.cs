@@ -47,13 +47,15 @@ public class TimingMiniGame : BaseMiniGame
     {
         if (_slider.value <= _hitValue + _clickOffset && _slider.value >= Mathf.Abs(_hitValue - _clickOffset))
         {
-            //TODO Add popularity point
+            _pointsData.OnAppealUpdated.Invoke(_AppealingIncrease);
+
             _speedMultiplier += _speedBoost;
             _speedMultiplier = Mathf.Clamp(_speedMultiplier, _initialSpeedMultiplier, _maxSpeedMultiplier);
         }
         else
         {
-            //TODO Substract popularity points
+            _pointsData.OnAppealUpdated.Invoke(_AppealingDecrease);
+
             _speedMultiplier = _initialSpeedMultiplier;
         }
     }

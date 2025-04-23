@@ -87,7 +87,7 @@ public class BalancingMiniGame : BaseMiniGame
         {
             if (_slider.value <= _hitValue + _clickOffset && _slider.value >= Mathf.Abs(_hitValue - _clickOffset))
             {
-                //TODO Add popularity point
+                _pointsData.OnAppealUpdated.Invoke(_AppealingIncrease);
 
                 _hitPointDelay -= _hitPointDelayBoost;
                 _hitPointDelay = Mathf.Clamp(_hitPointDelay, _minHitPointDelay ,_initialHitPointDelay);
@@ -95,7 +95,7 @@ public class BalancingMiniGame : BaseMiniGame
             }
             else
             {
-                //TODO Substract popularity points
+                _pointsData.OnAppealUpdated.Invoke(_AppealingDecrease);
 
                 _hitPointDelay = _initialHitPointDelay;
                 yield return new WaitForSeconds(_hitPointDelay);

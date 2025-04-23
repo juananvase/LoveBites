@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af19b8e3198982645826321ad07316d2, type: 3}
+  m_Name: PointsData
+  m_EditorClassIdentifier: 
+  <Blood>k__BackingField: 0
+  <OnBloodUpdated>k__BackingField: {fileID: 11400000, guid: 6033e8b0c431c2a49bd1cf9c6e9b68ee, type: 2}
+  <OnResetBlood>k__BackingField: {fileID: 11400000, guid: 7c0a3e8a3ea39004abe95bbc7a02f6a4, type: 2}
+  <Appeal>k__BackingField: 0
+  <OnAppealUpdated>k__BackingField: {fileID: 11400000, guid: 8662af2d84ebf784c9ea2db0e9ce20db, type: 2}
+  <OnResetAppeal>k__BackingField: {fileID: 11400000, guid: fcb5dfb7cce256c4781be9c8d34f1d05, type: 2}

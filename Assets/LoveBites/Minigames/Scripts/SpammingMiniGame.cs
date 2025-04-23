@@ -7,6 +7,8 @@ public class SpammingMiniGame : BaseMiniGame
     [Header("Thresholds")]
     [SerializeField] private GameObject _lowThreshold;
     [SerializeField] private GameObject _midThreshold;
+    [SerializeField] private float _lowBloodBoost = 1f;
+    [SerializeField] private float _midBloodBoost = 2f;
 
     [Header("Data")]
     [SerializeField] private Vector3 _increasePerInteraction;
@@ -50,7 +52,25 @@ public class SpammingMiniGame : BaseMiniGame
         while (true) 
         {
             DecreaseArea(_decreaseAmountOverTime);
+            CheckScore();
             yield return new WaitForSeconds(0.5f); 
         }
+    }
+
+    private void CheckScore()
+    {
+        if (_knob.transform.localScale.magnitude > _midThreshold.transform.localScale.magnitude)
+        {
+            _pointsData.OnBloodUpdated.Invoke(_bloodIncrease + _midBloodBoost);
+            return;
+        }
+
+        if (_knob.transform.localScale.magnitude > _lowThreshold.transform.localScale.magnitude)
+        {
+            _pointsData.OnBloodUpdated.Invoke(_bloodIncrease + _lowBloodBoost);
+            return;
+        }
+
+        _pointsData.OnBloodUpdated.Invoke(_bloodIncrease);
     }
 }

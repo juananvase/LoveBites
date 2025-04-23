@@ -3,11 +3,13 @@ using UnityEngine.InputSystem;
 using UnityEngine.AI;
 using System;
 using System.Collections;
+using UnityEngine.Events;
 
 public class CustomCharacterController : MonoBehaviour
 {
     [Header("State")]
     [SerializeField] private GameplayState _gameplayState;
+    [SerializeField] private GameplayStateEventAsset _onChangeGameplayState;
 
     [Header("MiniGames")]
     [SerializeField] private EmptyEventAsset _onPressButton;
@@ -31,11 +33,19 @@ public class CustomCharacterController : MonoBehaviour
     private void OnEnable()
     {
         _input.Enable();
+        _onChangeGameplayState.AddListener(ChangeGameplayState);
     }
 
     private void OnDisable()
     {
         _input.Disable();
+        _onChangeGameplayState.RemoveListener(ChangeGameplayState);
+
+    }
+
+    private void ChangeGameplayState(GameplayState targetGameplayState)
+    {
+        _gameplayState = targetGameplayState;
     }
 
     private void Start()

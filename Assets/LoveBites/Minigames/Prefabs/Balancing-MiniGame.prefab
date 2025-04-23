@@ -58,9 +58,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 719667351926db04d9908d5cd9219ad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _miniGameEffect: 0
   _onPressButton: {fileID: 11400000, guid: 61565e0cf52367040bfa97ca8a276814, type: 2}
   _onReleaseButton: {fileID: 11400000, guid: 29d631cd448681042b06322868e57d32, type: 2}
   _knob: {fileID: 4878656027286136034}
+  _pointsData: {fileID: 11400000, guid: b29a4899dc0ea874bb394f31adc0f05a, type: 2}
+  _bloodIncrease: 1
+  _AppealingIncrease: 1
+  _bloodDecrease: -0.5
+  _AppealingDecrease: -0.5
+  _miniGaneDuration: 10
+  _onChangeGameplayState: {fileID: 11400000, guid: 1388b9b1962b8654b8a023cc252f17fe, type: 2}
   _slider: {fileID: 30738867328586583}
   _hitArea: {fileID: 7134693799700453928}
   _duration: 1.5
