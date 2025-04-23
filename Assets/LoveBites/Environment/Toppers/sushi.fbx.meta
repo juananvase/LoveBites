@@ -3,7 +3,22 @@ guid: c5dfb0abe653aa748bc479d272380b94
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: nori
+    second: {fileID: 2100000, guid: d3fc61a62a495f240a7423ca6b5f4454, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rice
+    second: {fileID: 2100000, guid: e6823b8604595ce46b7b898ab8d2c1b9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tuna
+    second: {fileID: 2100000, guid: 45d45aaee3829fd46a1a5368ddc87c3f, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

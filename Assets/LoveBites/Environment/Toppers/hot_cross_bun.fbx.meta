@@ -3,7 +3,22 @@ guid: afe2320f4f3a21948ac4240e58e8edcc
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bun_icing
+    second: {fileID: 2100000, guid: e6823b8604595ce46b7b898ab8d2c1b9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bun_raisin
+    second: {fileID: 2100000, guid: d3fc61a62a495f240a7423ca6b5f4454, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bun_top
+    second: {fileID: 2100000, guid: afe6fed4937ac6b4a8ef4b8422d84b8a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
