@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <PickedUp>k__BackingField: 0
   <Home>k__BackingField: {fileID: 0}
-  <AppealThreshold>k__BackingField: 100
+  <AppealThreshold>k__BackingField: 389.36945
   <MaxAppealThreshold>k__BackingField: 500
   <MinAppealThreshold>k__BackingField: 100
   <OnGeneratePassangerData>k__BackingField: {fileID: 11400000, guid: 84470cc9398216d4898e6f2b843e26b8, type: 2}
